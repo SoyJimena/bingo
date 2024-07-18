@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bingo de Baby Shower</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="home">
+        <h1>Elige una tabla de bingo</h1>
+        <button class="btn" onclick="showBingoCard(1)">Tabla 1</button>
+        <button class="btn" onclick="showBingoCard(2)">Tabla 2</button>
+        <button class="btn" onclick="showBingoCard(3)">Tabla 3</button>
+        <button class="btn" onclick="showBingoCard(4)">Tabla 4</button>
+        <button class="btn" onclick="showBingoCard(5)">Tabla 5</button>
+    </div>
+
+    <div id="bingo-card" class="hidden">
+        <button class="btn" onclick="showHome()">Volver</button>
+        <div class="bingo-card" id="card-content">
+            <!-- Aquí se insertarán las celdas de las tablas de bingo -->
+        </div>
+    </div>
+
+    <script>
+        function showHome() {
+            document.getElementById('home').classList.remove('hidden');
+            document.getElementById('bingo-card').classList.add('hidden');
+        }
+
+        function showBingoCard(tableNumber) {
+            document.getElementById('home').classList.add('hidden');
+            document.getElementById('bingo-card').classList.remove('hidden');
+
+            const cardContent = document.getElementById('card-content');
+            cardContent.innerHTML = ''; // Limpiar contenido anterior
+
+            let images;
+            if (tableNumber === 1) {
+                images = [
+                    'baby_bottle.png', 'diaper.png', 'toy.png', 'stroller.png',
+                    'onesie.png', 'pacifier.png', 'baby_hat.png', 'blanket.png',
+                    'booties.png', 'crib.png', 'rattle.png', 'baby_food.png',
+                    'bath_tub.png', 'teddy_bear.png', 'bib.png', 'baby_shampoo.png'
+                ];
+            } else if (tableNumber === 2) {
+                images = [
+                    'pacifier.png', 'baby_hat.png', 'blanket.png', 'booties.png',
+                    'crib.png', 'baby_bottle.png', 'diaper.png', 'toy.png',
+                    'stroller.png', 'onesie.png', 'rattle.png', 'baby_food.png',
+                    'bath_tub.png', 'teddy_bear.png', 'bib.png', 'baby_shampoo.png'
+                ];
+            } else if (tableNumber === 3) {
+                images = [
+                    'rattle.png', 'baby_food.png', 'bath_tub.png', 'teddy_bear.png',
+                    'bib.png', 'baby_shampoo.png', 'pacifier.png', 'baby_hat.png',
+                    'blanket.png', 'booties.png', 'crib.png', 'baby_bottle.png',
+                    'diaper.png', 'toy.png', 'stroller.png', 'onesie.png'
+                ];
+            } else if (tableNumber === 4) {
+                images = [
+                    'baby_shampoo.png', 'baby_powder.png', 'baby_wipes.png', 'baby_oil.png',
+                    'baby_socks.png', 'teether.png', 'baby_lotion.png', 'baby_towel.png',
+                    'baby_blanket.png', 'baby_book.png', 'pacifier.png', 'baby_hat.png',
+                    'blanket.png', 'booties.png', 'crib.png', 'baby_bottle.png'
+                ];
+            } else if (tableNumber === 5) {
+                images = [
+                    'baby_oil.png', 'baby_socks.png', 'teether.png', 'baby_lotion.png',
+                    'baby_towel.png', 'baby_blanket.png', 'baby_book.png', 'pacifier.png',
+                    'baby_hat.png', 'blanket.png', 'booties.png', 'crib.png',
+                    'baby_bottle.png', 'diaper.png', 'toy.png', 'stroller.png'
+                ];
+            }
+
+            // Shuffle images array to randomize the positions
+            images.sort(() => Math.random() - 0.5);
+
+            images.slice(0, 16).forEach(image => {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                const img = document.createElement('img');
+                img.src = `images/${image}`;
+                img.alt = image.split('.')[0];
+                cell.appendChild(img);
+                cardContent.appendChild(cell);
+
+                cell.addEventListener('click', () => {
+                    cell.classList.toggle('marked');
+                });
+            });
+        }
+    </script>
+</body>
+</html>
