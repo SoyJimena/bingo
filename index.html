@@ -39,45 +39,40 @@
             let images;
             if (tableNumber === 1) {
                 images = [
-                    'baby_bottle.png', 'diaper.png', 'toy.png', 'stroller.png',
-                    'onesie.png', 'pacifier.png', 'baby_hat.png', 'blanket.png',
-                    'booties.png', 'crib.png', 'rattle.png', 'baby_food.png',
-                    'bath_tub.png', 'teddy_bear.png', 'bib.png', 'baby_shampoo.png'
+                    'pañales.png', 'biberon.png', 'carreola.png',
+                    'portabebes.png', 'ropa.png', 'manta.png',
+                    'juguetes.png', 'babero.png', 'chupete.png'
                 ];
             } else if (tableNumber === 2) {
                 images = [
-                    'pacifier.png', 'baby_hat.png', 'blanket.png', 'booties.png',
-                    'crib.png', 'baby_bottle.png', 'diaper.png', 'toy.png',
-                    'stroller.png', 'onesie.png', 'rattle.png', 'baby_food.png',
-                    'bath_tub.png', 'teddy_bear.png', 'bib.png', 'baby_shampoo.png'
+                    'ropa.png', 'pañales.png', 'carreola.png',
+                    'juguetes.png', 'babero.png', 'chupete.png',
+                    'portabebes.png', 'manta.png', 'biberon.png'
                 ];
             } else if (tableNumber === 3) {
                 images = [
-                    'rattle.png', 'baby_food.png', 'bath_tub.png', 'teddy_bear.png',
-                    'bib.png', 'baby_shampoo.png', 'pacifier.png', 'baby_hat.png',
-                    'blanket.png', 'booties.png', 'crib.png', 'baby_bottle.png',
-                    'diaper.png', 'toy.png', 'stroller.png', 'onesie.png'
+                    'manta.png', 'chupete.png', 'babero.png',
+                    'juguetes.png', 'biberon.png', 'ropa.png',
+                    'carreola.png', 'portabebes.png', 'pañales.png'
                 ];
             } else if (tableNumber === 4) {
                 images = [
-                    'baby_shampoo.png', 'baby_powder.png', 'baby_wipes.png', 'baby_oil.png',
-                    'baby_socks.png', 'teether.png', 'baby_lotion.png', 'baby_towel.png',
-                    'baby_blanket.png', 'baby_book.png', 'pacifier.png', 'baby_hat.png',
-                    'blanket.png', 'booties.png', 'crib.png', 'baby_bottle.png'
+                    'carreola.png', 'ropa.png', 'manta.png',
+                    'pañales.png', 'babero.png', 'juguetes.png',
+                    'biberon.png', 'chupete.png', 'portabebes.png'
                 ];
             } else if (tableNumber === 5) {
                 images = [
-                    'baby_oil.png', 'baby_socks.png', 'teether.png', 'baby_lotion.png',
-                    'baby_towel.png', 'baby_blanket.png', 'baby_book.png', 'pacifier.png',
-                    'baby_hat.png', 'blanket.png', 'booties.png', 'crib.png',
-                    'baby_bottle.png', 'diaper.png', 'toy.png', 'stroller.png'
+                    'biberon.png', 'juguetes.png', 'pañales.png',
+                    'ropa.png', 'chupete.png', 'babero.png',
+                    'carreola.png', 'manta.png', 'portabebes.png'
                 ];
             }
 
             // Shuffle images array to randomize the positions
             images.sort(() => Math.random() - 0.5);
 
-            images.slice(0, 16).forEach(image => {
+            images.slice(0, 9).forEach(image => {
                 const cell = document.createElement('div');
                 cell.classList.add('cell');
                 const img = document.createElement('img');
